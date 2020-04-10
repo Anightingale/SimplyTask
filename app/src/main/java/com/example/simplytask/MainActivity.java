@@ -25,6 +25,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        GeneralDatabase.addSubject("email", "Math");
+        GeneralDatabase.addSubject("email", "Science");
+        GeneralDatabase.addSubject("email", "History");
+        GeneralDatabase.addSubject("email", "English");
+        String subjectID = GeneralDatabase.subjectID("email", "History");
+        GeneralDatabase.addCategory(subjectID, "Assignment");
+        GeneralDatabase.addCategory(subjectID, "Homework");
+        GeneralDatabase.addCategory(subjectID, "Fun");
+        String categoryID = GeneralDatabase.categoryID(subjectID, "Assignment");
+        GeneralDatabase.addTask(categoryID, "proj1");
+        GeneralDatabase.addTask(categoryID, "Ass1");
+        GeneralDatabase.addTask(categoryID, "Essay");
+        GeneralDatabase.addTask(categoryID, "Report");
+        GeneralDatabase.addTask(categoryID, "Presentation");
     }
 
     public void logIn(final View view){

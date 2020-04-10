@@ -126,7 +126,7 @@ public class GeneralDatabase {
         final String id = categoryID(subjectID, name);
 
         category.put("Name", name);
-        category.put("Subject", subjectID);
+        category.put("SubjectID", subjectID);
 
         db.collection("Category").document(id).set(category)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -144,17 +144,17 @@ public class GeneralDatabase {
 
     }
 
-    public static String taskID(String categoryId, String taskName){
-        return categoryId+taskName;
+    public static String taskID(String categoryID, String taskName){
+        return categoryID+taskName;
     }
 
-    public static void addTask(String categoryId, String taskName){
+    public static void addTask(String categoryID, String taskName){
 
         Map<String, Object> task = new HashMap<>();
-        final String id = taskID(categoryId, taskName);
+        final String id = taskID(categoryID, taskName);
 
         task.put("Name", taskName);
-        task.put("Category", categoryId);
+        task.put("CategoryID", categoryID);
 
         db.collection("Task").document(id).set(task)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

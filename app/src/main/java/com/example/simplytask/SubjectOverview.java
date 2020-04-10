@@ -30,6 +30,8 @@ public class SubjectOverview extends AppCompatActivity {
     String email;
     HashMap<Integer, String> buttonID;
 
+    //TODO investigate storing the list of buttons to prevent them going missing when going back
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,7 @@ public class SubjectOverview extends AppCompatActivity {
                                 String subjectID = document.getId();
                                 Log.d(TAG, "____________________SubjectID " + subjectID);
                                 Object nameObject = data.get("Name");
-                                String name = nameObject.toString();
+                                final String name = nameObject.toString();
                                 Log.d(TAG, "____________________Name " + name);
                                 Log.d(TAG, "____________________PreButtonID " + buttonID);
                                 buttonID.put(i, subjectID);
@@ -79,6 +81,7 @@ public class SubjectOverview extends AppCompatActivity {
                                     public void onClick(View v) {
                                         Intent intent = new Intent(context, SubjectTasks.class);
                                         intent.putExtra("SubjectID", buttonID.get(v.getId()));
+                                        intent.putExtra("Name", name);
                                         intent.putExtra("Email", email);
                                         startActivity(intent);
                                     }

@@ -98,7 +98,7 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/title5"
+            android:id="@+id/hello"
             android:layout_width="63dp"
             android:layout_height="22dp"
             android:ems="12"

@@ -6,43 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="16dp"
-        android:background="#4E4232"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#171560"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:context=".MainActivity">
 
         <TextView
             android:id="@+id/mySubjects4"
-            android:layout_width="411dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
-            android:text="Edit Subject:"
+            android:text="Edit: "
             android:textColor="#BCFFFFFF"
             android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+            app:layout_constraintEnd_toStartOf="@+id/title2"
+            app:layout_constraintTop_toBottomOf="@+id/addSubject2" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -69,8 +57,8 @@
 
         <TextView
             android:id="@+id/title2"
-            android:layout_width="415dp"
-            android:layout_height="58dp"
+            android:layout_width="145dp"
+            android:layout_height="56dp"
             android:layout_marginEnd="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
@@ -79,8 +67,8 @@
             android:textAlignment="textEnd"
             android:textColor="#f2b55e"
             android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mySubjects4" />
+            app:layout_constraintBottom_toBottomOf="@+id/mySubjects4"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/simplyTask"
@@ -108,7 +96,7 @@
             android:fontFamily="@font/audiowide"
             android:text="☆★☆"
             android:textColor="@android:color/background_light"
-            android:textSize="45"
+            android:textSize="45dp"
             app:layout_constraintEnd_toEndOf="@+id/toolbar"
             app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
@@ -116,35 +104,35 @@
             android:id="@+id/name"
             android:layout_width="99dp"
             android:layout_height="52dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
             android:text="Amy N"
             android:textColor="@android:color/background_light"
             android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            tools:layout_editor_absoluteY="111dp" />
+            app:layout_constraintBottom_toTopOf="@+id/toolbar2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/title5"
+            android:id="@+id/hello"
             android:layout_width="63dp"
             android:layout_height="22dp"
-            android:layout_marginTop="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
             android:text="Hello!"
-            android:textColor="@android:color/background_light"
+            android:textColor="#171560"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/simplyTask"
-            tools:layout_editor_absoluteX="212dp" />
+            app:layout_constraintEnd_toEndOf="@+id/simplyTask" />
+
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="52dp"
+            android:layout_height="0dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -286,6 +274,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+
+        <Button
+            android:id="@+id/addSubject2"
+            android:layout_width="208dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#f2b55e"
+            android:fontFamily="@font/audiowide"
+            android:text="Class Overview"
+            android:textAlignment="textEnd"
+            android:textColor="#171560"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

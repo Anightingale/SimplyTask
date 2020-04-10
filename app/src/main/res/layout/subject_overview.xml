@@ -9,6 +9,18 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="#171560"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/miniToolbar"
+        android:layout_width="0dp"
         android:layout_height="16dp"
         android:background="#f2b55e"
         android:minHeight="?attr/actionBarSize"
@@ -18,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/mySubjects"
         android:layout_width="275dp"
         android:layout_height="74dp"
         android:layout_marginStart="16dp"
@@ -29,25 +41,12 @@
         android:text="My Subjects"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:background="#171560"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/miniToolbar" />
 
     <TextView
-        android:id="@+id/title5"
+        android:id="@+id/hello"
         android:layout_width="60dp"
         android:layout_height="22dp"
-        android:layout_marginTop="16dp"
         android:ems="12"
         android:fontFamily="@font/audiowide"
         android:inputType="textPersonName"
@@ -55,8 +54,7 @@
         android:textColor="#f2b55e"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/simplyTask"
-        tools:layout_editor_absoluteX="212dp" />
+        app:layout_constraintEnd_toEndOf="@+id/simplyTask" />
 
     <TextView
         android:id="@+id/simplyTask"
@@ -74,7 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/simplyTask2"
+        android:id="@+id/stars"
         android:layout_width="122dp"
         android:layout_height="66dp"
         android:layout_marginTop="4dp"
@@ -84,23 +82,9 @@
         android:fontFamily="@font/audiowide"
         android:text="☆★☆"
         android:textColor="@android:color/background_light"
-        android:textSize="45"
+        android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="99dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
-        android:ems="12"
-        android:fontFamily="@font/audiowide"
-        android:inputType="textPersonName"
-        android:text="Amy N"
-        android:textColor="@android:color/background_light"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        tools:layout_editor_absoluteY="111dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -113,6 +97,21 @@
         app:layout_constraintVertical_bias="0.9"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="99dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:ems="12"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Amy N"
+        android:textColor="@android:color/background_light"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -124,7 +123,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
+        app:layout_constraintTop_toBottomOf="@+id/mySubjects">
 
         <Button
             android:id="@+id/button2"

@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="16dp"
-        android:background="#4E4232"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -89,7 +78,7 @@
             android:fontFamily="@font/audiowide"
             android:text="☆★☆"
             android:textColor="#171560"
-            android:textSize="45"
+            android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="@+id/toolbar"
             app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
@@ -98,20 +87,20 @@
             android:layout_width="99dp"
             android:layout_height="52dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
             android:text="Amy N"
             android:textColor="#171560"
             android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            tools:layout_editor_absoluteY="111dp" />
+            app:layout_constraintBottom_toTopOf="@+id/toolbar2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/title5"
             android:layout_width="63dp"
             android:layout_height="22dp"
-            android:layout_marginTop="16dp"
             android:ems="12"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
@@ -119,8 +108,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/simplyTask"
-            tools:layout_editor_absoluteX="212dp" />
+            app:layout_constraintEnd_toEndOf="@+id/simplyTask" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -134,7 +122,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/Category1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -158,7 +146,7 @@
             android:padding="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText">
+            app:layout_constraintTop_toBottomOf="@+id/Category1">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -198,7 +186,7 @@
                 android:background="#F9F9F9">
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/checkBox33"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="#171560"
@@ -233,7 +221,7 @@
                 android:background="#F9F9F9">
 
                 <CheckBox
-                    android:id="@+id/checkBox4"
+                    android:id="@+id/checkBox44"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="#171560"
@@ -263,17 +251,18 @@
         </TableLayout>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/Category2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ems="10"
             android:fontFamily="@font/audiowide"
             android:inputType="textPersonName"
             android:text="Homework"
             android:textColor="#171560"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-            tools:layout_editor_absoluteX="17dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
         <TableLayout
             android:layout_width="0dp"
@@ -285,7 +274,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3">
+            app:layout_constraintTop_toBottomOf="@+id/Category2">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -307,7 +296,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/dropdownTitle"
                     android:layout_width="69dp"
                     android:layout_height="wrap_content"
                     android:ems="10"

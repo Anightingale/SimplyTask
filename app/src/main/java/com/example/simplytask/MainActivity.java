@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GeneralDatabase.addUser("Test@domain", "NamieMcNameFace");
+        GeneralDatabase.addUser("user@domain", "user");
 
     }
 }

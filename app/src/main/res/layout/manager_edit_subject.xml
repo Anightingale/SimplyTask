@@ -4,292 +4,284 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#171560"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#171560"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/mySubjects4"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:ems="12"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Edit: "
+        android:textColor="#BCFFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/title2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:background="#FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:context=".MainActivity">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <TextView
-            android:id="@+id/mySubjects4"
-            android:layout_width="80dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:ems="12"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Edit: "
-            android:textColor="#BCFFFFFF"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@+id/title2"
-            app:layout_constraintTop_toBottomOf="@+id/addSubject2" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="#f2b55e"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="0dp"
-            android:layout_height="16dp"
-            android:background="#FFFFFF"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="145dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:ems="12"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Maths"
+        android:textAlignment="textEnd"
+        android:textColor="#f2b55e"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mySubjects4"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="0dp"
-            android:layout_height="180dp"
-            android:background="#f2b55e"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/simplyTask"
+        android:layout_width="250dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/audiowide"
+        android:text="Simply Task"
+        android:textColor="@android:color/background_light"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-        <TextView
-            android:id="@+id/title2"
-            android:layout_width="145dp"
-            android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:ems="12"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Maths"
-            android:textAlignment="textEnd"
-            android:textColor="#f2b55e"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="@+id/mySubjects4"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/simplyTask2"
+        android:layout_width="121dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/audiowide"
+        android:text="☆★☆"
+        android:textColor="@android:color/background_light"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-        <TextView
-            android:id="@+id/simplyTask"
-            android:layout_width="250dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:focusableInTouchMode="false"
-            android:fontFamily="@font/audiowide"
-            android:text="Simply Task"
-            android:textColor="@android:color/background_light"
-            android:textSize="35sp"
-            app:layout_constraintStart_toStartOf="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="@+id/toolbar" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="99dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="12"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Amy N"
+        android:textColor="@android:color/background_light"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/simplyTask2"
-            android:layout_width="121dp"
-            android:layout_height="69dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="@font/audiowide"
-            android:text="☆★☆"
-            android:textColor="@android:color/background_light"
-            android:textSize="45dp"
-            app:layout_constraintEnd_toEndOf="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="@+id/toolbar" />
-
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="99dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:ems="12"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Amy N"
-            android:textColor="@android:color/background_light"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/toolbar2"
-            app:layout_constraintEnd_toStartOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="63dp"
-            android:layout_height="22dp"
-            android:ems="12"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Hello!"
-            android:textColor="#171560"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintEnd_toEndOf="@+id/simplyTask" />
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="63dp"
+        android:layout_height="22dp"
+        android:ems="12"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Hello!"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="@+id/simplyTask" />
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="52dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/name"
-            app:layout_constraintVertical_bias="0.9"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="71dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hello"
+        app:layout_constraintVertical_bias="0.9"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Assignments"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title2" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textPersonName"
+        android:text="Assignments"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addSubject2" />
 
-        <TableLayout
-            android:id="@+id/tableLayout2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/background_light"
-            android:orientation="vertical"
-            android:padding="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText">
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText">
 
-            <TableRow
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:background="#171560">
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="301dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/audiowide"
+                android:text="Task"
+                android:textColor="#BEFFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button8"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#171560">
+                android:background="@android:color/background_light"
+                android:backgroundTint="#171560"
+                android:fontFamily="sans-serif"
+                android:text="＋"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent" />
+        </TableRow>
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="301dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/audiowide"
-                    android:text="Task"
-                    android:textColor="#BEFFFFFF"
-                    android:textSize="18sp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#171560">
 
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/background_light"
-                    android:backgroundTint="#171560"
-                    android:fontFamily="sans-serif"
-                    android:text="＋"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:buttonTint="@android:color/background_light"
+                android:fontFamily="@font/audiowide" />
 
-            </TableRow>
-
-            <TableRow
+            <EditText
+                android:id="@+id/editText10"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#171560">
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Count Mr Allison's nose hairs"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:buttonTint="@android:color/background_light"
-                    android:fontFamily="@font/audiowide" />
-
-                <EditText
-                    android:id="@+id/editText10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:ems="10"
-                    android:fontFamily="@font/audiowide"
-                    android:inputType="textPersonName"
-                    android:text="Count Mr Allison's nose hairs"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </TableRow>
-
-            <TableRow
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#171560">
+                android:layout_height="match_parent" />
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent" />
+        </TableRow>
 
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="203dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/background_light"
-                    android:backgroundTint="#171560"
-                    android:fontFamily="@font/audiowide"
-                    android:text="+ Add Task "
-                    android:textAlignment="textStart"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#171560">
 
-            </TableRow>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
 
-        </TableLayout>
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="203dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/background_light"
+                android:backgroundTint="#171560"
+                android:fontFamily="@font/audiowide"
+                android:text="+ Add Task "
+                android:textAlignment="textStart"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/background_light"
-            android:fontFamily="@font/audiowide"
-            android:text="+ Add Category"
-            android:textColor="#171560"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/addSubject2"
-            android:layout_width="208dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#f2b55e"
-            android:fontFamily="@font/audiowide"
-            android:text="Class Overview"
-            android:textAlignment="textEnd"
-            android:textColor="#171560"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+    </TableLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@android:color/background_light"
+        android:fontFamily="@font/audiowide"
+        android:text="+ Add Category"
+        android:textColor="#171560"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+
+    <Button
+        android:id="@+id/addSubject2"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="#f2b55e"
+        android:fontFamily="@font/audiowide"
+        android:text="Classroom Overview"
+        android:textAlignment="textEnd"
+        android:textColor="#171560"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

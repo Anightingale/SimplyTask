@@ -116,6 +116,7 @@
             android:layout_height="70dp"
             android:backgroundTint="#f1b258"
             android:fontFamily="@font/audiowide"
+            android:onClick="goToMath"
             android:text="Maths"
             android:textColor="#171560"
             android:textSize="20sp" />
@@ -126,6 +127,7 @@
             android:layout_height="70dp"
             android:backgroundTint="#7cd1cd"
             android:fontFamily="@font/audiowide"
+            android:onClick="goToEnglish"
             android:text="English"
             android:textColor="#171560"
             android:textSize="20sp" />
@@ -136,6 +138,7 @@
             android:layout_height="70dp"
             android:backgroundTint="#99a2de"
             android:fontFamily="@font/audiowide"
+            android:onClick="goToArt"
             android:text="Art"
             android:textColor="#171560"
             android:textSize="20sp" />
@@ -146,6 +149,7 @@
             android:layout_height="70dp"
             android:backgroundTint="#e682a9"
             android:fontFamily="@font/audiowide"
+            android:onClick="goToMusic"
             android:text="Music"
             android:textColor="#171560"
             android:textSize="20sp" />
@@ -155,6 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fontFamily="@font/audiowide"
+            android:onClick="goToPersonal"
             android:text="Personal"
             android:textColor="#171560"
             android:textSize="20sp" />

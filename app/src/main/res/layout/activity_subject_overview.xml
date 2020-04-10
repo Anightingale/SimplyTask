@@ -113,6 +113,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
     <LinearLayout
+        android:id="@+id/buttonArea"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -123,62 +124,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mySubjects">
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:backgroundTint="#f2b55e"
-            android:fontFamily="@font/audiowide"
-            android:text="Maths"
-            android:textColor="#171560"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:backgroundTint="#7cd1cd"
-            android:fontFamily="@font/audiowide"
-            android:text="English"
-            android:textColor="#171560"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:backgroundTint="#99a2de"
-            android:fontFamily="@font/audiowide"
-            android:text="Art"
-            android:textColor="#171560"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:backgroundTint="#e682a9"
-            android:fontFamily="@font/audiowide"
-            android:onClick="goToMusic"
-            android:text="Music"
-            android:textColor="#171560"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/audiowide"
-            android:text="Personal"
-            android:textColor="#171560"
-            android:textSize="20sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/mySubjects" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

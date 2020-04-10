@@ -9,7 +9,7 @@ class Art extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.subject_overview);
+        setContentView(R.layout.activity_subject_overview);
     }
 
 }

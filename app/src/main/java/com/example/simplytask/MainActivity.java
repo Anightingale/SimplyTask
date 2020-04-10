@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.subjectOverview);
+        setContentView(R.layout.subject_overview);
     }
 
     public void goToMath(View view){

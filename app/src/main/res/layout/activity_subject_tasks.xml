@@ -348,7 +348,7 @@
                     android:spinnerMode="dropdown" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -388,7 +388,7 @@
                     android:layout_height="match_parent" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"

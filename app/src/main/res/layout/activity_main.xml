@@ -70,16 +70,14 @@
         android:layout_width="0dp"
         android:layout_height="284dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="#99a2de"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar5"
         app:layout_constraintVertical_bias="0.501" />
 
     <androidx.appcompat.widget.Toolbar
@@ -99,7 +97,7 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar3" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -107,19 +105,19 @@
         android:inputType="textEmailAddress"
         android:textColor="#120E4E"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:fontFamily="@font/audiowide"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:textColor="#120E4E"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="@+id/toolbar4"
@@ -138,7 +136,7 @@
         android:text="Email:"
         android:textColor="#120E4E"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/email"
         app:layout_constraintStart_toStartOf="@+id/toolbar4"
         app:layout_constraintTop_toTopOf="@+id/toolbar4" />
 
@@ -163,6 +161,7 @@
         android:layout_marginEnd="16dp"
         android:background="#7cd1cd"
         android:fontFamily="@font/audiowide"
+        android:onClick="createUser"
         android:text="CREATE ACCOUNT"
         android:textColor="#120E4E"
         android:textSize="24sp"
@@ -182,6 +181,7 @@
         android:layout_marginBottom="16dp"
         android:background="#e682a9"
         android:fontFamily="@font/audiowide"
+        android:onClick="logIn"
         android:text="LOGIN"
         android:textColor="#120E4E"
         android:textSize="24sp"

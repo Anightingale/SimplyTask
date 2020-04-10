@@ -23,11 +23,11 @@ public class GeneralDatabase {
 
     public static FirebaseFirestore db= FirebaseFirestore.getInstance();
 
-    public static void addUser(final String email, String name) {
+    public static void addUser(final String email, String password) {
 
         Map<String, Object> user = new HashMap<>();
 
-        user.put("Name", name);
+        user.put("Password", password);
         user.put("Email", email);
 
         db.collection("User").document(email).set(user)

@@ -16,6 +16,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--
+        <activity android:name=".MathActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".MusicActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ArtsActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".EnglishActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ParsonalActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

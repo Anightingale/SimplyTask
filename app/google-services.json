@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "616447759310",
+    "firebase_url": "https://simplytask-97cbb.firebaseio.com",
+    "project_id": "simplytask-97cbb",
+    "storage_bucket": "simplytask-97cbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616447759310:android:0565d41b55c2d58961919f",
+        "android_client_info": {
+          "package_name": "com.example.simplytask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616447759310-f7ctqjsdidmmdlk765u1p65j100400pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSma-7xRw182BQtu6iz08PGHmo9Y1DGq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616447759310-f7ctqjsdidmmdlk765u1p65j100400pp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

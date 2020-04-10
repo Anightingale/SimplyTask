@@ -28,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void logIn(final View view){
 
-        String email = findViewById(R.id.email).toString();
-        String password = findViewById(R.id.password).toString();
+
+        EditText emailText = (EditText) findViewById(R.id.email);
+        String email = emailText.getText().toString();
+        EditText passwordText = (EditText) findViewById(R.id.password);
+        String password = passwordText.getText().toString();
 
         FirebaseFirestore db = GeneralDatabase.db;
         DocumentReference docRef = db.collection("User").document(email);
@@ -39,17 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "User data: " + document.getData());
+                        Log.d(TAG, "____________________User data: " + document.getData());
 
                         goToSubjectOverview(view);
 
                     } else {
-                        Log.d(TAG, "No such user");
+                        Log.d(TAG, "____________________No such user");
                         //TODO error popup - incorrect credentials
                         return;
                     }
                 } else {
-                    Log.d(TAG, "get user failed with ", task.getException());
+                    Log.d(TAG, "____________________get user failed with ", task.getException());
                     //TODO error  popup - unable to comunicate with server
                     return;
                 }

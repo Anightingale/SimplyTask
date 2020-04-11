@@ -13,19 +13,31 @@
     app:layout_constraintVertical_bias="1.0"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar9"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#f2b55e"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/mySubjects4"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="81dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
         android:ems="12"
         android:fontFamily="@font/audiowide"
         android:inputType="textPersonName"
         android:text="Edit: "
         android:textColor="#BCFFFFFF"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/title2"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintBottom_toBottomOf="@+id/title2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -52,9 +64,10 @@
 
     <TextView
         android:id="@+id/title2"
-        android:layout_width="145dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="141dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="12"
         android:fontFamily="@font/audiowide"
         android:inputType="textPersonName"
@@ -62,8 +75,8 @@
         android:textAlignment="textEnd"
         android:textColor="#f2b55e"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mySubjects4"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/mySubjects4"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <TextView
         android:id="@+id/simplyTask"
@@ -274,14 +287,15 @@
         android:id="@+id/addSubject2"
         android:layout_width="0dp"
         android:layout_height="53dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="#f2b55e"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/cardview_light_background"
         android:fontFamily="@font/audiowide"
         android:text="Classroom Overview"
         android:textAlignment="textEnd"
         android:textColor="#171560"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

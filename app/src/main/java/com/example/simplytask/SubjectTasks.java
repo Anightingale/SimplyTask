@@ -25,6 +25,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,7 +72,6 @@ public class SubjectTasks extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "____________________Category with SubjectID Success");
                             final LinearLayout layout = (LinearLayout) findViewById(R.id.tableArea);
-                            int i = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map<String, Object> data = document.getData();
                                 Log.d(TAG, "____________________Category with SubjectID " + document.getId() + " => " + document.getData());
@@ -96,7 +97,17 @@ public class SubjectTasks extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 final ArrayList<String> fields = new ArrayList<>();
+
                                                 TableRow head = new TableRow(context);
+
+                                                TextView stat = new TextView(context);
+                                                stat.setText("Status");
+                                                head.addView(stat);
+
+                                                TextView titl = new TextView(context);
+                                                titl.setText("Task");
+                                                head.addView(titl);
+
                                                 if (task.isSuccessful()) {
                                                     Log.d(TAG, "____________________Field with CategoryID Success");
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
@@ -257,7 +268,6 @@ public class SubjectTasks extends AppCompatActivity {
                                                         });
 
                                                 layout.addView(tableLayout);
-                                                i++;
 
                                                 /*******TASK BODY BOTTOM**********/
 

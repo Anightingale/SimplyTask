@@ -214,7 +214,7 @@
                 android:inputType="textPersonName"
                 android:text="Patrick A"
                 android:textAlignment="center"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
             <EditText
@@ -225,7 +225,7 @@
                 android:fontFamily="@font/audiowide"
                 android:inputType="textPersonName"
                 android:text="patty@nosehair.com.au"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
         </TableRow>
 
@@ -244,7 +244,7 @@
                 android:inputType="textPersonName"
                 android:text="John S"
                 android:textAlignment="center"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
             <EditText
@@ -255,7 +255,7 @@
                 android:fontFamily="@font/audiowide"
                 android:inputType="textPersonName"
                 android:text="jsmith10@gmail.com"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
         </TableRow>
 
@@ -274,7 +274,7 @@
                 android:inputType="textPersonName"
                 android:text="Amy N"
                 android:textAlignment="center"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
             <EditText
@@ -285,7 +285,7 @@
                 android:fontFamily="@font/audiowide"
                 android:inputType="textPersonName"
                 android:text="amyisAwesome@cool.com"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
         </TableRow>
 

@@ -4,7 +4,7 @@
     android:height="24dp"
     android:viewportWidth="189.70312"
     android:viewportHeight="189.70312"
-    android:tint="#FFFFFF">
+    android:tint="#171560">
   <group android:translateX="24.35156">
     <group android:translateY="144.28125">
       <path android:pathData="M11.53125,-115.171875L129.58594,-115.171875L70.59375,2.8828125Z"

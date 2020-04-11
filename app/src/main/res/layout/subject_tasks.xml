@@ -14,7 +14,7 @@
         android:id="@+id/toolbar7"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="#171560"
+        android:background="@color/final_logo_background"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         android:layout_width="177dp"
         android:layout_height="61dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:ems="12"
         android:fontFamily="@font/audiowide"
         android:inputType="textPersonName"
@@ -189,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#DCDCDC">
+            android:background="@color/lightGrey">
 
             <CheckBox
                 android:id="@+id/checkBox33"
@@ -208,7 +208,7 @@
                 android:ems="10"
                 android:fontFamily="@font/audiowide"
                 android:text="Count Mr Allison's nose hairs"
-                android:textColor="#8C8C8C"
+                android:textColor="@color/darkGrey"
                 android:textSize="14sp" />
 
             <ImageView
@@ -366,9 +366,11 @@
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="27dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#000000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/dropdownn"
+                android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
                 android:entries="3"
                 android:spinnerMode="dropdown" />
@@ -422,11 +424,15 @@
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#000000"
-                android:paddingRight="-10dp" />
+                android:id="@+id/spinner5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/dropdownn"
+                android:backgroundTint="@color/logo_background"
+                android:dropDownWidth="match_parent"
+                android:entries="3"
+                android:spinnerMode="dropdown" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -467,11 +473,15 @@
                 android:layout_height="wrap_content" />
 
             <Spinner
-                android:id="@+id/spinner4"
-                android:layout_width="22dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#000000"
-                android:paddingRight="-10dp" />
+                android:id="@+id/spinner6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/dropdownn"
+                android:backgroundTint="@color/logo_background"
+                android:dropDownWidth="match_parent"
+                android:entries="3"
+                android:spinnerMode="dropdown" />
 
             <EditText
                 android:id="@+id/editText3"
@@ -486,5 +496,56 @@
         </TableRow>
 
     </TableLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar15"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:background="@color/final_logo_background"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/title2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar2" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar7"
+        app:layout_constraintStart_toStartOf="@+id/toolbar7"
+        app:layout_constraintTop_toTopOf="@+id/toolbar7"
+        app:srcCompat="@mipmap/logo_round" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Worker"
+        android:textAlignment="textEnd"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar15"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar15"
+        app:layout_constraintTop_toTopOf="@+id/toolbar15" />
+
+    <Spinner
+        android:id="@+id/spinner8"
+        android:layout_width="34dp"
+        android:layout_height="29dp"
+        android:background="@drawable/dropdownn"
+        android:backgroundTint="@color/orange"
+        android:entries="2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="@+id/toolbar15"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -145,7 +145,7 @@
             android:backgroundTint="#f2b55e"
             android:fontFamily="@font/audiowide"
             android:text="Maths"
-            android:textColor="#171560"
+            android:textColor="@color/final_logo_background"
             android:textSize="20sp" />
 
         <Button
@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:backgroundTint="#7cd1cd"
+            android:backgroundTint="@color/green"
             android:fontFamily="@font/audiowide"
             android:text="English"
             android:textColor="#171560"
@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:backgroundTint="#99a2de"
+            android:backgroundTint="@color/purple"
             android:fontFamily="@font/audiowide"
             android:text="Art"
             android:textColor="#171560"
@@ -175,7 +175,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:backgroundTint="#e682a9"
+            android:backgroundTint="@color/pink"
             android:fontFamily="@font/audiowide"
             android:onClick="goToMusic"
             android:text="Music"
@@ -201,7 +201,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/mySubjects"
-        app:layout_constraintEnd_toEndOf="@+id/miniToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
@@ -212,18 +212,30 @@
         android:fontFamily="@font/audiowide"
         android:text="Worker"
         android:textAlignment="textEnd"
-        android:textColor="@color/logo_background"
+        android:textColor="@color/final_logo_background"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar11"
         app:layout_constraintEnd_toEndOf="@+id/toolbar11"
         app:layout_constraintTop_toTopOf="@+id/toolbar11" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar6"
+        app:layout_constraintStart_toStartOf="@+id/toolbar6"
+        app:layout_constraintTop_toTopOf="@+id/toolbar6"
+        app:srcCompat="@mipmap/logo_round" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="34dp"
         android:layout_height="29dp"
         android:background="@drawable/dropdownn"
-        android:backgroundTint="@color/logo_background"
+        android:backgroundTint="@color/final_logo_background"
         android:entries="2"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar11"
         app:layout_constraintEnd_toStartOf="@+id/textView7"

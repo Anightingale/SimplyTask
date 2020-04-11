@@ -67,7 +67,7 @@
         android:layout_width="141dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:ems="12"
         android:fontFamily="@font/audiowide"
         android:inputType="textPersonName"
@@ -297,5 +297,55 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title2" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar12"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/title2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="34dp"
+        android:layout_height="29dp"
+        android:background="@drawable/dropdownn"
+        android:backgroundTint="@color/orange"
+        android:entries="2"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar12"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/toolbar12"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Worker"
+        android:textAlignment="textEnd"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar12"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar12"
+        app:layout_constraintTop_toTopOf="@+id/toolbar12" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar9"
+        app:srcCompat="@mipmap/logo_round" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

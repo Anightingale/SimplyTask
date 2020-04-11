@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">SimplyTask</string>
+
+    <string-array name="users">
+        <item></item>
+        <item>Worker</item>
+        <item>Manager</item>
+    </string-array>
+
+    <string-array name="difficulty">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
 </resources>

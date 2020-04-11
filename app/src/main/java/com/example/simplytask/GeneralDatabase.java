@@ -232,12 +232,12 @@ public class GeneralDatabase {
         return taskID+workerID;
     }
 
-    public static void addStatus(String taskID, String workerID, String status){
+    public static void addStatus(String taskID, String workerID, Boolean status){
 
         Map<String, Object> statusObject = new HashMap<>();
         final String id = subjectID(taskID, workerID);
 
-        statusObject.put("Status", statusObject);
+        statusObject.put("Status", status);
         statusObject.put("Task", taskID);
         statusObject.put("Worker", workerID);
 

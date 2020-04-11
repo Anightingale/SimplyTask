@@ -22,6 +22,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar7"
+        app:layout_constraintStart_toStartOf="@+id/toolbar7"
+        app:layout_constraintTop_toTopOf="@+id/toolbar7"
+        app:srcCompat="@mipmap/logo_round" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
@@ -186,19 +198,17 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/lightGrey">
 
-            <CheckBox
-                android:id="@+id/checkBox33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
-                android:buttonTint="#171560"
-                android:checked="true"
-                android:fontFamily="@font/audiowide" />
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightGrey"
+                app:srcCompat="@mipmap/starcheckblue" />
 
             <EditText
                 android:id="@+id/editText10"
@@ -213,7 +223,7 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="74dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFFFF"
                 android:paddingLeft="20dp"
@@ -222,17 +232,17 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#F9F9F9">
+            android:background="@color/orange">
 
-            <CheckBox
-                android:id="@+id/checkBox44"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#171560"
-                android:fontFamily="@font/audiowide" />
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/orange"
+                app:srcCompat="@mipmap/circlecheckblue" />
 
             <EditText
                 android:id="@+id/editText11"
@@ -263,6 +273,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
     <TableLayout
+        android:id="@+id/tableLayout3"
         android:layout_width="0dp"
         android:layout_height="171dp"
         android:layout_marginStart="16dp"
@@ -272,7 +283,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Category2">
+        tools:layout_editor_absoluteY="547dp">
 
         <TableRow
             android:layout_width="379dp"
@@ -286,7 +297,7 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="193dp"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/audiowide"
                 android:text="Tasks"
@@ -295,7 +306,7 @@
 
             <EditText
                 android:id="@+id/dropdownTitle"
-                android:layout_width="47dp"
+                android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/audiowide"
@@ -306,7 +317,7 @@
 
             <EditText
                 android:id="@+id/dropdownTitle2"
-                android:layout_width="23dp"
+                android:layout_width="17dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/audiowide"
@@ -333,22 +344,21 @@
             android:layout_weight="1"
             android:background="#DCDCDC">
 
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#171560"
-                android:checked="true"
-                android:fontFamily="@font/audiowide" />
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightGrey"
+                app:srcCompat="@mipmap/starcheckblue" />
 
             <EditText
                 android:id="@+id/editText7"
-                android:layout_width="196dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/audiowide"
                 android:inputType="textPersonName"
-                android:text="Watch Video: www.vid.tv"
+                android:text="Watch: www.vid.tv"
                 android:textColor="#FF8C8C8C"
                 android:textSize="14sp" />
 
@@ -366,7 +376,7 @@
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/dropdownn"
@@ -392,18 +402,17 @@
             android:layout_weight="1"
             android:background="#DCDCDC">
 
-            <CheckBox
-                android:id="@+id/checkBox4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#171560"
-                android:checked="true"
-                android:fontFamily="@font/audiowide" />
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightGrey"
+                app:srcCompat="@mipmap/starcheckblue" />
 
             <EditText
                 android:id="@+id/editText8"
                 android:layout_width="177dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:ems="10"
                 android:fontFamily="@font/audiowide"
                 android:inputType="textPersonName"
@@ -425,7 +434,7 @@
 
             <Spinner
                 android:id="@+id/spinner5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/dropdownn"
@@ -451,12 +460,12 @@
             android:layout_weight="1"
             android:background="#F9F9F9">
 
-            <CheckBox
-                android:id="@+id/checkBox5"
+            <ImageButton
+                android:id="@+id/imageButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#171560"
-                android:fontFamily="@font/audiowide" />
+                android:background="@color/white"
+                app:srcCompat="@mipmap/squarecheckblue" />
 
             <EditText
                 android:id="@+id/editText9"
@@ -474,7 +483,7 @@
 
             <Spinner
                 android:id="@+id/spinner6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/dropdownn"
@@ -508,18 +517,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar2" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar7"
-        app:layout_constraintStart_toStartOf="@+id/toolbar7"
-        app:layout_constraintTop_toTopOf="@+id/toolbar7"
-        app:srcCompat="@mipmap/logo_round" />
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="0dp"
@@ -547,5 +544,226 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar15"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/audiowide"
+        android:text="DONE!!!"
+        android:textAlignment="textEnd"
+        android:textColor="@color/final_logo_background"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/category2" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar16"
+        android:layout_width="412dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:titleTextColor="@color/final_logo_background" />
+
+    <TextView
+        android:id="@+id/ ☆ ★"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ★★ ☆ ★ ☆ ★ ☆ ★ ☆ ★"
+        android:textColor="@color/final_logo_background"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar16" />
+
+    <TableLayout
+        android:id="@+id/tableLayout5"
+        android:layout_width="0dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#120E4E"
+        android:padding="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="379dp"
+            android:layout_height="19dp"
+            android:layout_weight="1"
+            android:background="#F9F9F9">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/audiowide"
+                android:text="Tasks"
+                android:textColor="?attr/colorControlNormal"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/dropdownTitle"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Hard"
+                android:textColor="?attr/colorControlNormal"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/dropdownTitle2"
+                android:layout_width="17dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="\?"
+                android:textColor="?attr/colorControlNormal"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Due"
+                android:textColor="?attr/colorControlNormal"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#DCDCDC">
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="43dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/starcheckblue" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Watch: www.vid.tv"
+                android:textColor="#FF8C8C8C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="#CCFFC3"
+                android:fontFamily="@font/audiowide"
+                android:paddingTop="10dp"
+                android:text="Nah :)"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/dropdownn"
+                android:backgroundTint="@color/logo_background"
+                android:dropDownWidth="match_parent"
+                android:entries="3"
+                android:spinnerMode="dropdown" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="10 April"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#DCDCDC">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="43dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/starcheckblue" />
+
+            <EditText
+                android:id="@+id/editText8"
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Research daily calories"
+                android:textColor="#FF8C8C8C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="47dp"
+                android:layout_height="match_parent"
+                android:background="#FFBEBE"
+                android:fontFamily="@font/audiowide"
+                android:paddingTop="10dp"
+                android:text="Yeh :("
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/dropdownn"
+                android:backgroundTint="@color/logo_background"
+                android:dropDownWidth="match_parent"
+                android:entries="3"
+                android:spinnerMode="dropdown" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:text="Monday"
+                android:textSize="14sp" />
+        </TableRow>
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

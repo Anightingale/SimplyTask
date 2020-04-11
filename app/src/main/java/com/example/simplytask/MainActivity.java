@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         Log.d(TAG, "____________________email: " + email);
 
-        intent.putExtra("Email", email);
+//        intent.putExtra("Email", email);
+        intent.putExtra("Email", "email");
         Log.d(TAG, "____________________Start Activity");
         startActivity(intent);
 

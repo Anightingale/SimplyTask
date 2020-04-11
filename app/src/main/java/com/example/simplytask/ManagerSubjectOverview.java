@@ -28,7 +28,7 @@ public class ManagerSubjectOverview extends AppCompatActivity {
                 Spinner s = (Spinner) parentView;
                 String user = s.getSelectedItem().toString();
                 if(user.equals("Worker")){
-                    Intent intent = new Intent(context, WorkerSubjectOverview.class);
+                    Intent intent = new Intent(context, SubjectOverview.class);
                     startActivity(intent);
                 }
                 return;

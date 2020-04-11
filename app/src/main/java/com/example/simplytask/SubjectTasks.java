@@ -79,6 +79,9 @@ public class SubjectTasks extends AppCompatActivity {
                                 String name = nameObject.toString();
                                 Log.d(TAG, "____________________Category with SubjectID Name: " + name);
 
+
+                                /********TASK BODY TOP*********/
+
                                 final TableLayout tableLayout = new TableLayout(context);
                                 TableRow row = new TableRow(context);
                                 TextView title = new TextView(context);
@@ -171,7 +174,7 @@ public class SubjectTasks extends AppCompatActivity {
                                                                     row.addView(checkBox,0);
 
                                                                 } else {
-                                                                    Log.d(TAG, "____________________get user failed with ", task.getException());
+                                                                    Log.d(TAG, "____________________get Status failed with ", task.getException());
                                                                     //TODO error  popup - unable to comunicate with server
                                                                     return;
                                                                 }
@@ -191,6 +194,9 @@ public class SubjectTasks extends AppCompatActivity {
 
                                 layout.addView(tableLayout);
                                 i++;
+
+                                /*******TASK BODY BOTTOM**********/
+
                             }
                         } else {
                             Log.d(TAG, "Error getting Category: ", task.getException());

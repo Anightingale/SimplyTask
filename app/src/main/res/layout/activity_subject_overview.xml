@@ -169,7 +169,6 @@
         android:layout_height="29dp"
         android:background="@drawable/dropdownn"
         android:backgroundTint="@color/logo_background"
-        android:entries="2"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar11"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintHorizontal_bias="0.413"

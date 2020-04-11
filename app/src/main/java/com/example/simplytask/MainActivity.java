@@ -11,31 +11,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.subject_overview);
+        setContentView(R.layout.activity_main);
     }
 
-    public void goToMath(View view){
-        Intent intent = new Intent(this, Maths.class);
-        startActivity(intent);
-    }
-
-    public void goToEnglish(View view){
-        Intent intent = new Intent(this, English.class);
-        startActivity(intent);
-    }
-
-    public void goToArt(View view){
-        Intent intent = new Intent(this, Art.class);
-        startActivity(intent);
-    }
-
-    public void goToMusic(View view){
-        Intent intent = new Intent(this, Music.class);
-        startActivity(intent);
-    }
-
-    public void goToPersonal(View view){
-        Intent intent = new Intent(this, Personal.class);
+    public void onClick(View view){
+        Intent intent = new Intent(this, WorkerSubjectOverview.class);
         startActivity(intent);
     }
 

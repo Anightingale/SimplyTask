@@ -8,7 +8,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".MainActivity">
+    tools:context=".WorkerSubjectTasks">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar7"
@@ -382,7 +382,7 @@
                 android:background="@drawable/dropdownn"
                 android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
-                android:entries="3"
+                android:entries="@array/difficulty"
                 android:spinnerMode="dropdown" />
 
             <EditText
@@ -440,7 +440,7 @@
                 android:background="@drawable/dropdownn"
                 android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
-                android:entries="3"
+                android:entries="@array/difficulty"
                 android:spinnerMode="dropdown" />
 
             <EditText
@@ -489,7 +489,7 @@
                 android:background="@drawable/dropdownn"
                 android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
-                android:entries="3"
+                android:entries="@array/difficulty"
                 android:spinnerMode="dropdown" />
 
             <EditText
@@ -537,7 +537,7 @@
         android:layout_height="29dp"
         android:background="@drawable/dropdownn"
         android:backgroundTint="@color/orange"
-        android:entries="2"
+        android:entries="@array/users"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintHorizontal_bias="0.413"
@@ -572,7 +572,7 @@
         app:titleTextColor="@color/final_logo_background" />
 
     <TextView
-        android:id="@+id/ ☆ ★"
+        android:id="@+id/starBanner"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ★★ ☆ ★ ☆ ★ ☆ ★ ☆ ★"
@@ -693,7 +693,7 @@
                 android:background="@drawable/dropdownn"
                 android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
-                android:entries="3"
+                android:entries="@array/difficulty"
                 android:spinnerMode="dropdown" />
 
             <EditText
@@ -750,7 +750,7 @@
                 android:background="@drawable/dropdownn"
                 android:backgroundTint="@color/logo_background"
                 android:dropDownWidth="match_parent"
-                android:entries="3"
+                android:entries="@array/difficulty"
                 android:spinnerMode="dropdown" />
 
             <EditText

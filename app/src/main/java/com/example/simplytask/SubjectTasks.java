@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,134 +69,205 @@ public class SubjectTasks extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "____________________Category with SubjectID Success");
-                            LinearLayout layout = (LinearLayout) findViewById(R.id.tableArea);
+                            final LinearLayout layout = (LinearLayout) findViewById(R.id.tableArea);
                             int i = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map<String, Object> data = document.getData();
                                 Log.d(TAG, "____________________Category with SubjectID " + document.getId() + " => " + document.getData());
-                                String categoryID = document.getId();
+                                final String categoryID = document.getId();
                                 Log.d(TAG, "____________________Category with SubjectID Category: " + categoryID);
                                 Object nameObject = data.get("Name");
                                 String name = nameObject.toString();
                                 Log.d(TAG, "____________________Category with SubjectID Name: " + name);
 
-
-                                /********TASK BODY TOP*********/
-
                                 final TableLayout tableLayout = new TableLayout(context);
-                                TableRow row = new TableRow(context);
+                                final TableRow row = new TableRow(context);
                                 TextView title = new TextView(context);
                                 title.setText(name);
                                 row.addView(title);
                                 tableLayout.addView(row);
 
-                                db.collection("Task")
+                                /************Fields Start****************/
+
+                                db.collection("Field")
                                         .whereEqualTo("CategoryID", categoryID)
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                final ArrayList<String> fields = new ArrayList<>();
+                                                TableRow head = new TableRow(context);
                                                 if (task.isSuccessful()) {
-
-                                                    Log.d(TAG, "____________________Task with Category Success");
-
+                                                    Log.d(TAG, "____________________Field with CategoryID Success");
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
-                                                        final TableRow row = new TableRow(context);
-
-                                                        Log.d(TAG, "____________________Task with Category " + document.getId() + " => " + document.getData());
+                                                        Log.d(TAG, "____________________Field with CategoryID " + document.getId() + " => " + document.getData());
                                                         Map<String, Object> data = document.getData();
-                                                        String taskID = document.getId();
-                                                        Log.d(TAG, "____________________Task with Category ID " + taskID);
                                                         Object nameObject = data.get("Name");
-                                                        final String name = nameObject.toString();
-                                                        Log.d(TAG, "____________________Task with Category Name: " + name);
+                                                        String name = nameObject.toString();
+                                                        Log.d(TAG, "____________________Category with SubjectID Name: " + name);
+                                                        fields.add(name);
+                                                        TextView field = new TextView(context);
+                                                        field.setText(name);
+                                                        head.addView(field);
+                                                    }
+                                                } else {
+                                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                                }
 
-                                                        TextView thing = new TextView(context);
-                                                        thing.setText(name);
-                                                        row.addView(thing);
+                                                tableLayout.addView(head);
+
+                                                /********TASK BODY TOP*********/
 
 
-                                                        final String statusID = GeneralDatabase.statusID(taskID, email);
-
-                                                        db.collection("Status")
-                                                        .document(statusID)
+                                                db.collection("Task")
+                                                        .whereEqualTo("CategoryID", categoryID)
                                                         .get()
-                                                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                             @Override
-                                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                                 if (task.isSuccessful()) {
-                                                                    Log.d(TAG, "____________________Status with StatusID Success");
-                                                                    DocumentSnapshot document = task.getResult();
-                                                                    Boolean status = false;
-                                                                    Log.d(TAG, "____________________Status with StatusID status" + status);
 
-                                                                    if (document.exists()) {
-                                                                        Log.d(TAG, "____________________Status with StatusID" + document.getId() + " => " + document.getData());
+                                                                    Log.d(TAG, "____________________Task with Category Success");
 
-                                                                        Map<String, Object> data = new HashMap<>();
-                                                                        data = document.getData();
-                                                                        status = (Boolean) data.get("Status");
+                                                                    for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                                                    } else {
-                                                                        Log.d(TAG, "____________________No such Status");
-                                                                        //TODO error popup - incorrect credentials
+                                                                        final TableRow body = new TableRow(context);
+
+                                                                        Log.d(TAG, "____________________Task with Category " + document.getId() + " => " + document.getData());
+                                                                        Map<String, Object> data = document.getData();
+                                                                        final String taskID = document.getId();
+                                                                        Log.d(TAG, "____________________Task with Category ID " + taskID);
+                                                                        Object nameObject = data.get("Name");
+                                                                        final String name = nameObject.toString();
+                                                                        Log.d(TAG, "____________________Task with Category Name: " + name);
+
+                                                                        TextView job = new TextView(context);
+                                                                        job.setText(name);
+                                                                        body.addView(job);
+
+                                                                        final String statusID = GeneralDatabase.statusID(taskID, email);
+
+                                                                        /**********Status Top**********/
+
+                                                                        db.collection("Status")
+                                                                                .document(statusID)
+                                                                                .get()
+                                                                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                                    @Override
+                                                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                                        if (task.isSuccessful()) {
+                                                                                            Log.d(TAG, "____________________Status with StatusID Success");
+                                                                                            DocumentSnapshot document = task.getResult();
+                                                                                            Boolean status = false;
+                                                                                            Log.d(TAG, "____________________Status with StatusID status" + status);
+
+                                                                                            if (document.exists()) {
+                                                                                                Log.d(TAG, "____________________Status with StatusID" + document.getId() + " => " + document.getData());
+
+                                                                                                Map<String, Object> data = new HashMap<>();
+                                                                                                data = document.getData();
+                                                                                                status = (Boolean) data.get("Status");
+
+                                                                                            } else {
+                                                                                                Log.d(TAG, "____________________No such Status");
+                                                                                                //TODO error popup - incorrect credentials
+
+                                                                                            }
+
+                                                                                            final CheckBox checkBox = new CheckBox(context);
+                                                                                            checkBox.setId(checkboxIdIndex);
+                                                                                            checkboxID.put(checkboxIdIndex, statusID);
+                                                                                            checkboxIdIndex++;
+                                                                                            checkBox.setChecked(status);
+                                                                                            Log.d(TAG, "____________________SetOnCheckedChangeListener");
+                                                                                            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                                                                                @Override
+                                                                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                                                                    int id = buttonView.getId();
+                                                                                                    String key = checkboxID.get(id);
+                                                                                                    Map<String, Object> d = new HashMap<>();
+                                                                                                    d.put("Status", isChecked);
+                                                                                                    Log.d(TAG, "____________________ onChecked key " + key + " d " + d + " isChecked " + isChecked);
+                                                                                                    db.collection("Status").document(key).set(d);
+                                                                                                }
+                                                                                            });
+                                                                                            checkBox.setOnClickListener(new View.OnClickListener() {
+                                                                                                @Override
+                                                                                                public void onClick(View v) {
+                                                                                                    CheckBox c = (CheckBox) v;
+                                                                                                    int id = c.getId();
+                                                                                                    String key = checkboxID.get(id);
+                                                                                                    Map<String, Object> d = new HashMap<>();
+                                                                                                    d.put("Status", c.isChecked());
+                                                                                                    Log.d(TAG, "____________________ onClicked key " + key + " d " + d + " isChecked " + c.isChecked());
+                                                                                                    db.collection("Status").document(key).set(d);
+                                                                                                }
+                                                                                            });
+                                                                                            body.addView(checkBox,0);
+
+
+                                                                                            for(String field : fields){
+
+                                                                                                /***********Tag Top**********/
+                                                                                                String tagID = GeneralDatabase.tagID(taskID, field);
+                                                                                                db.collection("Tag").document(tagID).get()
+                                                                                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                                                    @Override
+                                                                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                                                        TextView tag = new TextView(context);
+                                                                                                        if (task.isSuccessful()) {
+                                                                                                            Log.d(TAG, "____________________Tag with TagID Success");
+                                                                                                            DocumentSnapshot document = task.getResult();
+                                                                                                            if (document.exists()) {
+                                                                                                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                                                                                                Map<String, Object> data = document.getData();
+                                                                                                                Object tagObject = data.get("Tag");
+                                                                                                                String tagString = tagObject.toString();
+                                                                                                                tag.setText(tagString);
+                                                                                                            } else {
+                                                                                                                Log.d(TAG, "No such document");
+                                                                                                            }
+                                                                                                        } else {
+                                                                                                            Log.d(TAG, "get failed with ", task.getException());
+                                                                                                        }
+                                                                                                        body.addView(tag);
+                                                                                                    }
+                                                                                                });
+                                                                                                /***********Tag Bottom**********/
+                                                                                            }
+
+                                                                                        } else {
+                                                                                            Log.d(TAG, "____________________get Status failed with ", task.getException());
+                                                                                            //TODO error  popup - unable to comunicate with server
+                                                                                            return;
+                                                                                        }
+                                                                                    }
+                                                                                });
+
+                                                                        /**********Status Bottom**********/
+
+                                                                        tableLayout.addView(body);
+
 
                                                                     }
-
-                                                                    final CheckBox checkBox = new CheckBox(context);
-                                                                    checkBox.setId(checkboxIdIndex);
-                                                                    checkboxID.put(checkboxIdIndex, statusID);
-                                                                    checkboxIdIndex++;
-                                                                    checkBox.setChecked(status);
-                                                                    Log.d(TAG, "____________________SetOnCheckedChangeListener");
-                                                                    checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                                                        @Override
-                                                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                                                            int id = buttonView.getId();
-                                                                            String key = checkboxID.get(id);
-                                                                            Map<String, Object> d = new HashMap<>();
-                                                                            d.put("Status", isChecked);
-                                                                            Log.d(TAG, "____________________ key " + key + " d " + d + " isChecked " + isChecked);
-                                                                            db.collection("Status").document(key).set(d);
-                                                                        }
-                                                                    });
-                                                                    checkBox.setOnClickListener(new View.OnClickListener() {
-                                                                        @Override
-                                                                        public void onClick(View v) {
-                                                                            CheckBox c = (CheckBox) v;
-                                                                            int id = c.getId();
-                                                                            String key = checkboxID.get(id);
-                                                                            Map<String, Object> d = new HashMap<>();
-                                                                            d.put("Status", c.isChecked());
-                                                                            Log.d(TAG, "____________________ key " + key + " d " + d + " isChecked " + c.isChecked());
-                                                                            db.collection("Status").document(key).set(d);
-                                                                        }
-                                                                    });
-                                                                    row.addView(checkBox,0);
-
                                                                 } else {
-                                                                    Log.d(TAG, "____________________get Status failed with ", task.getException());
-                                                                    //TODO error  popup - unable to comunicate with server
-                                                                    return;
+                                                                    Log.d(TAG, "Error getting task: ", task.getException());
                                                                 }
                                                             }
                                                         });
 
+                                                layout.addView(tableLayout);
+                                                i++;
 
-                                                        tableLayout.addView(row);
+                                                /*******TASK BODY BOTTOM**********/
 
-
-                                                    }
-                                                } else {
-                                                    Log.d(TAG, "Error getting task: ", task.getException());
-                                                }
                                             }
                                         });
 
-                                layout.addView(tableLayout);
-                                i++;
 
-                                /*******TASK BODY BOTTOM**********/
+
+                                /************Fields end****************/
+
 
                             }
                         } else {

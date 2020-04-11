@@ -182,7 +182,7 @@ public class GeneralDatabase {
         final String id = fieldID(categoryID, name);
 
         field.put("Name", name);
-        field.put("Category", categoryID);
+        field.put("CategoryID", categoryID);
 
         db.collection("Field").document(id).set(field)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -200,19 +200,21 @@ public class GeneralDatabase {
 
     }
 
-    public static String tagID(String fieldID, String name){
-        return  fieldID+name;
+    public static String tagID(String taskID, String fieldName){
+        return  taskID+fieldName;
     }
 
-    public static void addTag(String fieldID, String name){
+    public static void addTag(String taskID, String fieldName, String tag){
 
-        Map<String, Object> tag = new HashMap<>();
-        final String id = tagID(fieldID, name);
+        Map<String, Object> data = new HashMap<>();
+        final String id = tagID(taskID, fieldName);
 
-        tag.put("Name", name);
-        tag.put("Field", fieldID);
+        data.put("TaskID", taskID);
+        data.put("FieldName", fieldName);
+        data.put("TagID", id);
+        data.put("Tag", tag);
 
-        db.collection("Tag").document(id).set(tag)
+        db.collection("Tag").document(id).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

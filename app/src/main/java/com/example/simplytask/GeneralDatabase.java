@@ -109,6 +109,7 @@ public class GeneralDatabase {
     }
 
     public static void addSubject(String managerID, String name) {
+        Log.d(TAG, "____________________AddSubject Database");
 
         Map<String, Object> data = new HashMap<>();
         final String subjectID = subjectID(managerID, name);

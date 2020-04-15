@@ -126,21 +126,21 @@
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"
             app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
-        <Button
-            android:id="@+id/addSubject"
-            android:layout_width="0dp"
-            android:layout_height="41dp"
-            android:layout_marginEnd="4dp"
-            android:backgroundTint="@android:color/background_light"
-            android:fontFamily="@font/audiowide"
-            android:text=" + Add New Subject"
-            android:textAlignment="textEnd"
-            android:textColor="#171560"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/mySubjects" />
+    <Button
+        android:id="@+id/addSubject"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:backgroundTint="@android:color/background_light"
+        android:fontFamily="@font/audiowide"
+        android:onClick="addNewSubject"
+        android:text=" + Add New Subject"
+        android:textAlignment="textEnd"
+        android:textColor="#171560"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonArea"
+        app:layout_constraintTop_toBottomOf="@+id/mySubjects" />
 
-        <androidx.appcompat.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar13"
             android:layout_width="150dp"
             android:layout_height="0dp"
@@ -152,7 +152,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/modeSpinner"
             android:layout_width="34dp"
             android:layout_height="29dp"
             android:background="@drawable/dropdownn"
@@ -190,56 +190,28 @@
             app:layout_constraintTop_toTopOf="@+id/toolbar8"
             app:srcCompat="@mipmap/logo_round" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addSubject">
+    <LinearLayout
+        android:id="@+id/buttonArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textboxHere" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="8dp"
-                android:backgroundTint="#7cd1cd"
-                android:fontFamily="@font/audiowide"
-                android:onClick="gotToSubject"
-                android:text="English"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/textboxHere"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addSubject"></LinearLayout>
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="8dp"
-                android:backgroundTint="#e682a9"
-                android:fontFamily="@font/audiowide"
-                android:onClick="gotToSubject"
-                android:text="Music"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="8dp"
-                android:backgroundTint="#99a2de"
-                android:fontFamily="@font/audiowide"
-                android:onClick="gotToSubject"
-                android:text="Personal"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

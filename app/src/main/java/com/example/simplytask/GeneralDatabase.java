@@ -23,20 +23,25 @@ public class GeneralDatabase {
 
     public static FirebaseFirestore db= FirebaseFirestore.getInstance();
 
+    public static String userID(String email){
+        return email;
+    }
+
     public static void addUser(final String email, String password) {
 
-        Map<String, Object> user = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+        final String userID = userID(email);
 
-        user.put("Password", password);
-        user.put("Email", email);
+        data.put("Password", password);
+        data.put("Email", email);
 
-        db.collection("User").document(email).set(user)
+        db.collection("User").document(userID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "User added with ID: " + email);
-                        addWorker(email);
-                        addManager(email);
+                        Log.d(TAG, "User added with ID: " + userID);
+                        addWorker(userID);
+                        addManager(userID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -47,17 +52,22 @@ public class GeneralDatabase {
                 });
     }
 
-    public static void addWorker(final String email){
+    public static String workerID(String userID){
+        return "worker" + userID;
+    }
 
-        Map<String, Object> worker = new HashMap<>();
+    public static void addWorker(final String userID){
 
-        worker.put("Email", email);
+        Map<String, Object> data = new HashMap<>();
+        final String workerID = workerID(userID);
 
-        db.collection("Worker").document(email).set(worker)
+        data.put("UserID", userID);
+
+        db.collection("Worker").document(workerID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Worker added with ID: " + email);
+                        Log.d(TAG, "Worker added with ID: " + workerID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -68,17 +78,22 @@ public class GeneralDatabase {
                 });
     }
 
-    public static void addManager(final String email){
+    public static String managerID(String userID){
+        return "manager" + userID;
+    }
 
-        Map<String, Object> manager = new HashMap<>();
+    public static void addManager(final String userID){
 
-        manager.put("Email", email);
+        Map<String, Object> data = new HashMap<>();
+        String managerID = managerID(userID);
 
-        db.collection("Manager").document(email).set(manager)
+        data.put("UserID", userID);
+
+        db.collection("Manager").document(managerID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Manager added with ID: " + email);
+                        Log.d(TAG, "Manager added with ID: " + userID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -89,23 +104,23 @@ public class GeneralDatabase {
                 });
     }
 
-    public static String subjectID(String ownerEmail, String name){
-        return ownerEmail+name;
+    public static String subjectID(String managerID, String name){
+        return managerID+name;
     }
 
-    public static void addSubject(String ownerEmail, String name) {
+    public static void addSubject(String managerID, String name) {
 
-        Map<String, Object> subject = new HashMap<>();
-        final String id = subjectID(ownerEmail, name);
+        Map<String, Object> data = new HashMap<>();
+        final String subjectID = subjectID(managerID, name);
 
-        subject.put("Name", name);
-        subject.put("Owner", ownerEmail);
+        data.put("Name", name);
+        data.put("ManagerID", managerID);
 
-        db.collection("Subject").document(id).set(subject)
+        db.collection("Subject").document(subjectID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Subject added with ID: " + id);
+                        Log.d(TAG, "Subject added with ID: " + subjectID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -116,23 +131,51 @@ public class GeneralDatabase {
                 });
     }
 
+    public static String enrollmentID(String subjectID, String workerID){
+        return subjectID+workerID;
+    }
+
+    public static void addEnrollemnt(String subjectID, String workerID){
+
+        Map<String, Object> data = new HashMap<>();
+        final String enrollmentID = enrollmentID(subjectID, workerID);
+
+        data.put("WorkerID", workerID);
+        data.put("SubjectID", subjectID);
+
+        db.collection("Enrollment").document(enrollmentID).set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Subject added with ID: " + enrollmentID);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding Subject", e);
+                    }
+                });
+
+    }
+
     public static String categoryID(String subjectID, String name){
         return subjectID+name;
     }
 
     public static void addCategory(String subjectID, String name){
 
-        Map<String, Object> category = new HashMap<>();
-        final String id = categoryID(subjectID, name);
+        Map<String, Object> data = new HashMap<>();
+        final String categoryID = categoryID(subjectID, name);
 
-        category.put("Name", name);
-        category.put("SubjectID", subjectID);
+        data.put("Name", name);
+        data.put("SubjectID", subjectID);
 
-        db.collection("Category").document(id).set(category)
+        db.collection("Category").document(categoryID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Category added with ID: " + id);
+                        Log.d(TAG, "Category added with ID: " + categoryID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -144,23 +187,23 @@ public class GeneralDatabase {
 
     }
 
-    public static String taskID(String categoryID, String taskName){
-        return categoryID+taskName;
+    public static String taskID(String categoryID, String name){
+        return categoryID+name;
     }
 
-    public static void addTask(String categoryID, String taskName){
+    public static void addTask(String categoryID, String name){
 
-        Map<String, Object> task = new HashMap<>();
-        final String id = taskID(categoryID, taskName);
+        Map<String, Object> data = new HashMap<>();
+        final String taskID = taskID(categoryID, name);
 
-        task.put("Name", taskName);
-        task.put("CategoryID", categoryID);
+        data.put("Name", name);
+        data.put("CategoryID", categoryID);
 
-        db.collection("Task").document(id).set(task)
+        db.collection("Task").document(taskID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Task added with ID: " + id);
+                        Log.d(TAG, "Task added with ID: " + taskID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -178,17 +221,17 @@ public class GeneralDatabase {
 
     public static void addField(String categoryID, String name){
 
-        Map<String, Object> field = new HashMap<>();
-        final String id = fieldID(categoryID, name);
+        Map<String, Object> data = new HashMap<>();
+        final String fieldID = fieldID(categoryID, name);
 
-        field.put("Name", name);
-        field.put("CategoryID", categoryID);
+        data.put("Name", name);
+        data.put("CategoryID", categoryID);
 
-        db.collection("Field").document(id).set(field)
+        db.collection("Field").document(fieldID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Field added with ID: " + id);
+                        Log.d(TAG, "Field added with ID: " + fieldID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -200,25 +243,53 @@ public class GeneralDatabase {
 
     }
 
-    public static String tagID(String taskID, String fieldName){
-        return  taskID+fieldName;
+    public static String valueID(String fieldID, String name){
+        return fieldID+name;
     }
 
-    public static void addTag(String taskID, String fieldName, String tag){
+    public static void addValue(String fieldID, String name){
 
         Map<String, Object> data = new HashMap<>();
-        final String id = tagID(taskID, fieldName);
+        final String valueID = fieldID(fieldID, name);
 
-        data.put("TaskID", taskID);
-        data.put("FieldName", fieldName);
-        data.put("TagID", id);
-        data.put("Tag", tag);
+        data.put("Name", name);
+        data.put("FieldID", fieldID);
 
-        db.collection("Tag").document(id).set(data)
+        db.collection("Value").document(valueID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "tag added with ID: " + id);
+                        Log.d(TAG, "Field added with ID: " + valueID);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding Field", e);
+                    }
+                });
+
+    }
+
+    public static String tagID(String taskID, String fieldName, String workerID){
+        return  taskID+fieldName+workerID;
+    }
+
+    public static void addTag(String taskID, String fieldName, String workerID, String value){
+
+        Map<String, Object> data = new HashMap<>();
+        final String tagID = tagID(taskID, fieldName, workerID);
+
+        data.put("TaskID", taskID);
+        data.put("FieldName", fieldName);
+        data.put("WorkerID", workerID);
+        data.put("Value", value);
+
+        db.collection("Tag").document(tagID).set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "tag added with ID: " + tagID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -236,18 +307,18 @@ public class GeneralDatabase {
 
     public static void addStatus(String taskID, String workerID, Boolean status){
 
-        Map<String, Object> statusObject = new HashMap<>();
-        final String id = subjectID(taskID, workerID);
+        Map<String, Object> data = new HashMap<>();
+        final String statusID = statusID(taskID, workerID);
 
-        statusObject.put("Status", status);
-        statusObject.put("Task", taskID);
-        statusObject.put("Worker", workerID);
+        data.put("Status", status);
+        data.put("TaskID", taskID);
+        data.put("WorkerID", workerID);
 
-        db.collection("Status").document(id).set(statusObject)
+        db.collection("Status").document(statusID).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "Status added with ID: " + id);
+                        Log.d(TAG, "Status added with ID: " + statusID);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

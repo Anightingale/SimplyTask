@@ -235,7 +235,7 @@
             app:srcCompat="@mipmap/logo_round" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/modeSpinner"
         android:layout_width="34dp"
         android:layout_height="29dp"
         android:background="@drawable/dropdownn"

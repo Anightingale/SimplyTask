@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ClassOverview">
+        <activity android:name=".ManagerSubjectOverview"
+            android:parentActivityName=".MainActivity"/>
 
-        </activity>
+        <activity android:name=".ManagerSubjectView"
+            android:parentActivityName=".ManagerSubjectOverview"/>
+
+        <activity android:name=".ManagerClassOverview"
+            android:parentActivityName=".ManagerSubjectView"/>
 
         <activity android:name=".SubjectOverview"
             android:parentActivityName=".MainActivity">

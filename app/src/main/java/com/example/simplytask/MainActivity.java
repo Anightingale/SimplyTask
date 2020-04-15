@@ -25,20 +25,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GeneralDatabase.addSubject("email", "Math");
-        GeneralDatabase.addSubject("email", "Science");
-        GeneralDatabase.addSubject("email", "History");
-        GeneralDatabase.addSubject("email", "English");
-        String subjectID = GeneralDatabase.subjectID("email", "History");
-        GeneralDatabase.addCategory(subjectID, "Assignment");
-        GeneralDatabase.addCategory(subjectID, "Homework");
-        GeneralDatabase.addCategory(subjectID, "Fun");
-        String categoryID = GeneralDatabase.categoryID(subjectID, "Assignment");
-        GeneralDatabase.addTask(categoryID, "proj1");
-        GeneralDatabase.addTask(categoryID, "Ass1");
-        GeneralDatabase.addTask(categoryID, "Essay");
-        GeneralDatabase.addTask(categoryID, "Report");
-        GeneralDatabase.addTask(categoryID, "Presentation");
+        String email = "email";
+        String userID = GeneralDatabase.userID(email);
+        String workerID = GeneralDatabase.workerID(userID);
+        String managerID = GeneralDatabase.managerID(userID);
+        String subjectName = "Simply Task";
+        String subjectID = GeneralDatabase.subjectID(managerID, subjectName);
+        String enrollmentID = GeneralDatabase.enrollmentID(subjectID, workerID);
+        String categoryName = "TO DO";
+        String categoryID = GeneralDatabase.categoryID(subjectID, categoryName);
+        String fieldName = "Done?";
+        String fieldID = GeneralDatabase.fieldID(categoryID, fieldName);
+        String value = "no";
+        String valueID = GeneralDatabase.valueID(fieldID, value);
+        String taskName = "Implement Backend";
+        String taskID = GeneralDatabase.taskID(categoryID, taskName);
+        String tagID = GeneralDatabase.tagID(taskID, fieldName, workerID);
+        String statusID = GeneralDatabase.statusID(taskID, workerID);
+
+        GeneralDatabase.addUser(email, "pass");
+        GeneralDatabase.addSubject(managerID, subjectName);
+        GeneralDatabase.addEnrollemnt(subjectID, workerID);
+        GeneralDatabase.addCategory(subjectID, categoryName);
+        GeneralDatabase.addField(categoryID, fieldName);
+        GeneralDatabase.addValue(fieldID, value);
+        GeneralDatabase.addTask(categoryID, taskName);
+        GeneralDatabase.addTag(taskID, fieldName, workerID, value);
+        GeneralDatabase.addStatus(taskID, workerID, false);
+
     }
 
     public void logIn(final View view){
@@ -48,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         EditText passwordText = (EditText) findViewById(R.id.password);
         String password = passwordText.getText().toString();
+
+        if(email.isEmpty() || password.isEmpty()){
+            Log.d(TAG, "____________________email is empty :" + email.isEmpty() + " pass is empty: " + password.isEmpty());
+            return;
+        }
 
         FirebaseFirestore db = GeneralDatabase.db;
         DocumentReference docRef = db.collection("User").document(email);
@@ -99,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
         EditText passwordText = (EditText) findViewById(R.id.password);
         String password = passwordText.getText().toString();
         Log.d(TAG, "____________________pass: " + password);
+        if(email.isEmpty() || password.isEmpty()){
+            Log.d(TAG, "____________________email is empty :" + email.isEmpty() + " pass is empty: " + password.isEmpty());
+            return;
+        }
         GeneralDatabase.addUser(email, password);
         Log.d(TAG, "____________________Added to database?");
 

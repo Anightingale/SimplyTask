@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -57,6 +59,28 @@ public class SubjectTasks extends AppCompatActivity {
         this.checkboxID = new HashMap<>();
         this.checkboxIdIndex = 0;
         Log.d(TAG, "____________________Email: " + email + " Name: " + name + " SubjectID: " + subjectID);
+
+        /*****Create Spinner Top*****/
+
+        Spinner spinner = (Spinner) findViewById(R.id.modeSpinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> parentView, View selectedItem, int pos, long id){
+                Log.d("TAG", "____________________ITEM SELECTED parent__ "+ parentView+" __selected__ "+selectedItem);
+                Spinner s = (Spinner) parentView;
+                String user = s.getSelectedItem().toString();
+                if(user.equals("Manager")){
+                    Intent intent = new Intent(context, ManagerSubjectOverview.class);
+                    intent.putExtra("Email", email);
+                    startActivity(intent);
+                }
+                return;
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+                return;
+            }
+        });
+
+        /*****Create Spinner Bottom*****/
 
         TextView name = findViewById(R.id.name);
         name.setText(this.email);
@@ -220,7 +244,7 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                             for(String field : fields){
 
                                                                                                 /***********Tag Top**********/
-                                                                                                String tagID = GeneralDatabase.tagID(taskID, field);
+                                                                                                String tagID = GeneralDatabase.tagID(taskID, field, email);
                                                                                                 db.collection("Tag").document(tagID).get()
                                                                                                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                                                                                     @Override
@@ -287,5 +311,10 @@ public class SubjectTasks extends AppCompatActivity {
                 });
 
 
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        onCreate(savedInstanceState);
     }
 }

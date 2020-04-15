@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
+import static android.content.ContentValues.TAG;
+
 public class ManagerClassOverview extends AppCompatActivity {
 
     Context context;
@@ -19,9 +21,11 @@ public class ManagerClassOverview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_class_overview);
 
+        Log.d(TAG, "____________________onCreate ManagerClassOverview");
+
         this.context = this;
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner7);
+        Spinner spinner = (Spinner) findViewById(R.id.modeSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> parentView, View selectedItem, int pos, long id){
                 Log.d("TAG", "____________________ITEM SELECTED parent__ "+ parentView+" __selected__ "+selectedItem);

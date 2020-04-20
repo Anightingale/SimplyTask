@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
         String tagID = GeneralDatabase.tagID(taskID, fieldName, workerID);
         String statusID = GeneralDatabase.statusID(taskID, workerID);
 
-        GeneralDatabase.addUser(email, "pass");
-        GeneralDatabase.addSubject(managerID, subjectName);
-        GeneralDatabase.addEnrollemnt(subjectID, workerID);
-        GeneralDatabase.addCategory(subjectID, categoryName);
-        GeneralDatabase.addField(categoryID, fieldName);
-        GeneralDatabase.addValue(fieldID, value);
-        GeneralDatabase.addTask(categoryID, taskName);
-        GeneralDatabase.addTag(taskID, fieldName, workerID, value);
-        GeneralDatabase.addStatus(taskID, workerID, false);
+//        GeneralDatabase.addUser(email, "pass");
+//        GeneralDatabase.addSubject(managerID, subjectName);
+//        GeneralDatabase.addEnrollemnt(subjectID, workerID);
+//        GeneralDatabase.addCategory(subjectID, categoryName);
+//        GeneralDatabase.addField(categoryID, fieldName);
+//        GeneralDatabase.addValue(fieldID, value);
+//        GeneralDatabase.addTask(categoryID, taskName);
+//        GeneralDatabase.addTag(taskID, fieldName, workerID, value);
+//        GeneralDatabase.addStatus(taskID, workerID, false);
 
     }
 
@@ -103,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         Log.d(TAG, "____________________email: " + email);
 
-        intent.putExtra("Email", email);
+        String userID = GeneralDatabase.userID(email);
+
+        intent.putExtra("UserID", userID);
         Log.d(TAG, "____________________Start Activity");
         startActivity(intent);
 

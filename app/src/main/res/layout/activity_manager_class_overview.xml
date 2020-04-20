@@ -341,7 +341,7 @@
             android:textColor="#BCFFFFFF"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title2" />
+            app:layout_constraintTop_toBottomOf="@+id/subjectName" />
 
         <TableLayout
             android:id="@+id/tableLayout4"
@@ -479,7 +479,7 @@
         </TableLayout>
 
         <TextView
-            android:id="@+id/title2"
+            android:id="@+id/subjectName"
             android:layout_width="145dp"
             android:layout_height="56dp"
             android:layout_marginStart="16dp"
@@ -501,12 +501,12 @@
             android:background="@color/white"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toTopOf="@+id/title2"
+            app:layout_constraintBottom_toTopOf="@+id/subjectName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <Spinner
-            android:id="@+id/spinner7"
+            android:id="@+id/modeSpinner"
             android:layout_width="34dp"
             android:layout_height="29dp"
             android:background="@drawable/dropdownn"

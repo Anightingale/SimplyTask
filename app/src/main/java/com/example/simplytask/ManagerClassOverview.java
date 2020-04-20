@@ -15,6 +15,10 @@ import static android.content.ContentValues.TAG;
 public class ManagerClassOverview extends AppCompatActivity {
 
     Context context;
+    String userID;
+    String managerID;
+    String subjectID;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,13 @@ public class ManagerClassOverview extends AppCompatActivity {
 
         Log.d(TAG, "____________________onCreate ManagerClassOverview");
 
+        Intent intent = getIntent();
+
         this.context = this;
+        this.userID = intent.getStringExtra("UserID");
+        this.managerID = intent.getStringExtra("ManagerID");
+        this.name = intent.getStringExtra("Name");
+        this.subjectID = intent.getStringExtra("SubjectID");
 
         Spinner spinner = (Spinner) findViewById(R.id.modeSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
@@ -33,6 +43,7 @@ public class ManagerClassOverview extends AppCompatActivity {
                 String user = s.getSelectedItem().toString();
                 if(user.equals("Worker")){
                     Intent intent = new Intent(context, SubjectOverview.class);
+                    intent.putExtra("UserID", userID);
                     startActivity(intent);
                 }
                 return;

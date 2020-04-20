@@ -22,7 +22,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class SubjectOverview extends AppCompatActivity {
 
     FirebaseFirestore db = GeneralDatabase.db;
-    String email;
+    String userID;
     String workerID;
     HashMap<Integer, String> buttonID;
     Context context;
@@ -45,8 +44,8 @@ public class SubjectOverview extends AppCompatActivity {
 
         Log.d(TAG, "____________________onCreate SubjectOverview");
         Intent intent = getIntent();
-        this.email = intent.getStringExtra("Email");
-        this.workerID = GeneralDatabase.workerID(email);
+        this.userID = intent.getStringExtra("UserID");
+        this.workerID = GeneralDatabase.workerID(userID);
         this.buttonID = new HashMap<Integer, String>();
         this.context = this;
 
@@ -60,7 +59,7 @@ public class SubjectOverview extends AppCompatActivity {
                 String user = s.getSelectedItem().toString();
                 if(user.equals("Manager")){
                     Intent intent = new Intent(context, ManagerSubjectOverview.class);
-                    intent.putExtra("Email", email);
+                    intent.putExtra("UserID", userID);
                     startActivity(intent);
                 }
                 return;
@@ -73,7 +72,7 @@ public class SubjectOverview extends AppCompatActivity {
         /*****Create Spinner Bottom*****/
 
         TextView name = findViewById(R.id.name);
-        name.setText(this.email);
+        name.setText(this.userID);
 
         Log.d(TAG, "____________________Get collection");
 
@@ -125,7 +124,8 @@ public class SubjectOverview extends AppCompatActivity {
                                                         Intent intent = new Intent(context, SubjectTasks.class);
                                                         intent.putExtra("SubjectID", buttonID.get(v.getId()));
                                                         intent.putExtra("Name", name);
-                                                        intent.putExtra("Email", email);
+                                                        intent.putExtra("WorkerID", workerID);
+                                                        intent.putExtra("UserID", userID);
                                                         startActivity(intent);
                                                     }
                                                 });

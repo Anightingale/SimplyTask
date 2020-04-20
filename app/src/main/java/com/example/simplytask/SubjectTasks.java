@@ -9,10 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -21,13 +19,10 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +33,8 @@ import static android.content.ContentValues.TAG;
 public class SubjectTasks extends AppCompatActivity {
 
     FirebaseFirestore db = GeneralDatabase.db;
-    String email;
+    String userID;
+    String workerID;
     String name;
     String subjectID;
     Context context;
@@ -50,15 +46,15 @@ public class SubjectTasks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_tasks);
 
-        Log.d(TAG, "____________________onCreate SubjectOverview");
+        Log.d(TAG, "____________________onCreate SubjectView");
         Intent intent = getIntent();
-        this.email = intent.getStringExtra("Email");
+        this.userID = intent.getStringExtra("UserID");
         this.name = intent.getStringExtra("Name");
+        this.workerID = intent.getStringExtra("WorkerID");
         this.subjectID = intent.getStringExtra("SubjectID");
         this.context = this;
         this.checkboxID = new HashMap<>();
         this.checkboxIdIndex = 0;
-        Log.d(TAG, "____________________Email: " + email + " Name: " + name + " SubjectID: " + subjectID);
 
         /*****Create Spinner Top*****/
 
@@ -70,7 +66,7 @@ public class SubjectTasks extends AppCompatActivity {
                 String user = s.getSelectedItem().toString();
                 if(user.equals("Manager")){
                     Intent intent = new Intent(context, ManagerSubjectOverview.class);
-                    intent.putExtra("Email", email);
+                    intent.putExtra("UserID", userID);
                     startActivity(intent);
                 }
                 return;
@@ -83,7 +79,7 @@ public class SubjectTasks extends AppCompatActivity {
         /*****Create Spinner Bottom*****/
 
         TextView name = findViewById(R.id.name);
-        name.setText(this.email);
+        name.setText(this.userID);
         TextView subjectName = findViewById(R.id.subjectName);
         subjectName.setText(this.name);
 
@@ -180,7 +176,7 @@ public class SubjectTasks extends AppCompatActivity {
                                                                         job.setText(name);
                                                                         body.addView(job);
 
-                                                                        final String statusID = GeneralDatabase.statusID(taskID, email);
+                                                                        final String statusID = GeneralDatabase.statusID(taskID, workerID);
 
                                                                         /**********Status Top**********/
 
@@ -244,7 +240,7 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                             for(String field : fields){
 
                                                                                                 /***********Tag Top**********/
-                                                                                                String tagID = GeneralDatabase.tagID(taskID, field, email);
+                                                                                                String tagID = GeneralDatabase.tagID(taskID, field, workerID);
                                                                                                 db.collection("Tag").document(tagID).get()
                                                                                                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                                                                                     @Override
@@ -256,9 +252,9 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                                             if (document.exists()) {
                                                                                                                 Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                                                                                                                 Map<String, Object> data = document.getData();
-                                                                                                                Object tagObject = data.get("Tag");
-                                                                                                                String tagString = tagObject.toString();
-                                                                                                                tag.setText(tagString);
+                                                                                                                Object valueObject = data.get("Tag");
+                                                                                                                String valueString = valueObject.toString();
+                                                                                                                tag.setText(valueString);
                                                                                                             } else {
                                                                                                                 Log.d(TAG, "No such document");
                                                                                                             }

@@ -36,7 +36,7 @@
             android:text="Edit: "
             android:textColor="#BCFFFFFF"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/title2"
+            app:layout_constraintBottom_toBottomOf="@+id/subjectName"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.Toolbar
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/title2"
+            android:id="@+id/subjectName"
             android:layout_width="141dp"
             android:layout_height="51dp"
             android:layout_marginStart="16dp"
@@ -148,143 +148,25 @@
             app:layout_constraintVertical_bias="0.9"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:fontFamily="@font/audiowide"
-            android:inputType="textPersonName"
-            android:text="Assignments"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addSubject2" />
-
-        <TableLayout
-            android:id="@+id/tableLayout2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/background_light"
-            android:orientation="vertical"
-            android:padding="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:background="#171560">
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="301dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/audiowide"
-                    android:text="Task"
-                    android:textColor="#BEFFFFFF"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/background_light"
-                    android:backgroundTint="#171560"
-                    android:fontFamily="sans-serif"
-                    android:text="＋"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#171560">
-
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:buttonTint="@android:color/background_light"
-                    android:fontFamily="@font/audiowide" />
-
-                <EditText
-                    android:id="@+id/editText10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:ems="10"
-                    android:fontFamily="@font/audiowide"
-                    android:inputType="textPersonName"
-                    android:text="Count Mr Allison's nose hairs"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#171560">
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent" />
-
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="203dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/background_light"
-                    android:backgroundTint="#171560"
-                    android:fontFamily="@font/audiowide"
-                    android:text="+ Add Task "
-                    android:textAlignment="textStart"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-
-            </TableRow>
-
-        </TableLayout>
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/background_light"
-            android:fontFamily="@font/audiowide"
-            android:text="+ Add Category"
-            android:textColor="#171560"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@android:color/background_light"
+        android:fontFamily="@font/audiowide"
+        android:onClick="addCategory"
+        android:text="+ Add Category"
+        android:textColor="#171560"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newCategoryText" />
 
     <Button
-        android:id="@+id/addSubject2"
+        android:id="@+id/classroomOvervieButton"
         android:layout_width="0dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
@@ -297,7 +179,7 @@
         android:textColor="#171560"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title2" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectName" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar12"
@@ -306,12 +188,12 @@
             android:background="@color/white"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toTopOf="@+id/title2"
+            app:layout_constraintBottom_toTopOf="@+id/subjectName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/modeSpinner"
             android:layout_width="34dp"
             android:layout_height="29dp"
             android:background="@drawable/dropdownn"
@@ -349,4 +231,31 @@
             app:layout_constraintTop_toTopOf="@+id/toolbar9"
             app:srcCompat="@mipmap/logo_round" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/tableArea"
+        android:layout_width="0dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classroomOvervieButton"></LinearLayout>
+
+    <EditText
+        android:id="@+id/newCategoryText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Category Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableArea" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

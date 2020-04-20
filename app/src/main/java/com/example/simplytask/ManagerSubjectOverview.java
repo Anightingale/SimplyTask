@@ -1,6 +1,5 @@
 package com.example.simplytask;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,7 +32,7 @@ import static android.content.ContentValues.TAG;
 public class ManagerSubjectOverview extends AppCompatActivity {
 
     FirebaseFirestore db = GeneralDatabase.db;
-    String email;
+    String userID;
     String managerID;
     HashMap<Integer, String> buttonID;
     Context context;
@@ -49,8 +48,8 @@ public class ManagerSubjectOverview extends AppCompatActivity {
         Log.d(TAG, "____________________onCreate ManagerSubjectOverview");
 
         Intent intent = getIntent();
-        this.email = intent.getStringExtra("Email");
-        this.managerID = GeneralDatabase.managerID(email);
+        this.userID = intent.getStringExtra("UserID");
+        this.managerID = GeneralDatabase.managerID(userID);
         this.buttonID = new HashMap<>();
         this.context = this;
         isFirstAddSubjectClick = true;
@@ -66,7 +65,7 @@ public class ManagerSubjectOverview extends AppCompatActivity {
                 String user = s.getSelectedItem().toString();
                 if(user.equals("Worker")){
                     Intent intent = new Intent(context, SubjectOverview.class);
-                    intent.putExtra("Email", email);
+                    intent.putExtra("UserID", userID);
                     startActivity(intent);
                 }
                 return;
@@ -79,7 +78,7 @@ public class ManagerSubjectOverview extends AppCompatActivity {
         /*****Spinner Bottom*****/
 
         TextView subjectName = findViewById(R.id.name);
-        subjectName.setText(this.email);
+        subjectName.setText(this.userID);
 
         Log.d(TAG, "____________________Get collection");
 
@@ -115,7 +114,7 @@ public class ManagerSubjectOverview extends AppCompatActivity {
                                         Intent intent = new Intent(context, ManagerSubjectView.class);
                                         intent.putExtra("SubjectID", buttonID.get(v.getId()));
                                         intent.putExtra("Name", subjectName);
-                                        intent.putExtra("Email", email);
+                                        intent.putExtra("UserID", userID);
                                         intent.putExtra("ManagerID", managerID);
                                         startActivity(intent);
                                     }
@@ -178,8 +177,9 @@ public class ManagerSubjectOverview extends AppCompatActivity {
                         Intent intent = new Intent(context, ManagerSubjectView.class);
                         intent.putExtra("SubjectID", buttonID.get(v.getId()));
                         intent.putExtra("Name", subjectName);
-                        intent.putExtra("Email", email);
+                        intent.putExtra("UserID", userID);
                         intent.putExtra("ManagerID", managerID);
+                        Log.d(TAG, "____________________Button onClick intent: " + intent.toString());
                         startActivity(intent);
                     }
                 });

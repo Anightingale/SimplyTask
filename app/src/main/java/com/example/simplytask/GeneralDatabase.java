@@ -21,6 +21,9 @@ import static android.content.ContentValues.TAG;
 
 public class GeneralDatabase {
 
+    //TODO Figure out how this is actually meant to connect since I don't see where it uses google-services.json...
+    //TODO Refactor this into an Interface and have classes to handle the listener logic
+
     public static FirebaseFirestore db= FirebaseFirestore.getInstance();
 
     public static String userID(String email){

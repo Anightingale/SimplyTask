@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -76,10 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        Map<String, Object> data = document.getData();
                         Log.d(TAG, "____________________User data: " + document.getData());
-
-                        goToSubjectOverview(view);
-
+                        TextView passText = (TextView) findViewById(R.id.password);
+                        String passString = passText.getText().toString();
+                        if(passString.equals(data.get("Password").toString())) {
+                            goToSubjectOverview(view);
+                        }
                     } else {
                         Log.d(TAG, "____________________No such user");
                         //TODO error popup - incorrect credentials

@@ -252,7 +252,7 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                                             if (document.exists()) {
                                                                                                                 Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                                                                                                                 Map<String, Object> data = document.getData();
-                                                                                                                Object valueObject = data.get("Tag");
+                                                                                                                Object valueObject = data.get("Value");
                                                                                                                 String valueString = valueObject.toString();
                                                                                                                 tag.setText(valueString);
                                                                                                             } else {
@@ -261,7 +261,9 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                                         } else {
                                                                                                             Log.d(TAG, "get failed with ", task.getException());
                                                                                                         }
+                                                                                                        Log.d(TAG, "____________________1");
                                                                                                         body.addView(tag);
+                                                                                                        Log.d(TAG, "____________________2");
                                                                                                     }
                                                                                                 });
                                                                                                 /***********Tag Bottom**********/
@@ -276,9 +278,11 @@ public class SubjectTasks extends AppCompatActivity {
                                                                                 });
 
                                                                         /**********Status Bottom**********/
+                                                                        Log.d(TAG, "____________________3");
 
                                                                         tableLayout.addView(body);
 
+                                                                        Log.d(TAG, "____________________4");
 
                                                                     }
                                                                 } else {
@@ -287,7 +291,9 @@ public class SubjectTasks extends AppCompatActivity {
                                                             }
                                                         });
 
+                                                Log.d(TAG, "____________________5");
                                                 layout.addView(tableLayout);
+                                                Log.d(TAG, "____________________6");
 
                                                 /*******TASK BODY BOTTOM**********/
 

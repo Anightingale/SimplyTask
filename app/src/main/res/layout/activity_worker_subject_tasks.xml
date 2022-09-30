@@ -11,6 +11,19 @@
     tools:context=".WorkerSubjectTasks">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/final_logo_background"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar16" />
+
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar7"
         android:layout_width="0dp"
         android:layout_height="100dp"
@@ -548,35 +561,36 @@
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/audiowide"
         android:text="DONE!!!"
         android:textAlignment="textEnd"
-        android:textColor="@color/final_logo_background"
+        android:textColor="@color/white"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/category2" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar16" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar16"
         android:layout_width="412dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3"
         app:titleTextColor="@color/final_logo_background" />
 
     <TextView
         android:id="@+id/starBanner"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:background="@color/final_logo_background"
         android:text="★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ★★ ☆ ★ ☆ ★ ☆ ★ ☆ ★"
-        android:textColor="@color/final_logo_background"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar16"
         app:layout_constraintEnd_toEndOf="parent"
@@ -586,16 +600,16 @@
     <TableLayout
         android:id="@+id/tableLayout5"
         android:layout_width="0dp"
-        android:layout_height="171dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="#120E4E"
         android:padding="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15">
 
         <TableRow
             android:layout_width="379dp"
@@ -618,7 +632,7 @@
 
             <EditText
                 android:id="@+id/dropdownTitle"
-                android:layout_width="36dp"
+                android:layout_width="56dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/audiowide"

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void logIn(final View view){
 
+        Log.d(TAG, "++++ logIn Start");
 
         EditText emailText = (EditText) findViewById(R.id.email);
         String email = emailText.getText().toString();
@@ -97,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
                     //TODO error  popup - unable to comunicate with server
                     return;
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "____________________Get User Doc Failed");
             }
         });
         return;

@@ -1,5 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.android.application'
+//apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+}
 
 android {
     compileSdkVersion 29
@@ -7,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.simplytask"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -22,6 +27,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -34,9 +44,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //Add SDKs for desired Firebase products
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:30.5.0')
     //firebase.google.com/docs/android/setup#avaliable-libraries
-    implementation 'com.google.firebase:firebase-firestore:21.4.2'
-    implementation 'com.google.firebase:firebase-core:17.3.0'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-core'
 
 }
 repositories {

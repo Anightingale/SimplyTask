@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.simplytask.Database.DatabaseInterface;
+import com.example.simplytask.Database.GeneralDatabase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +19,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "____________________email is empty :" + email.isEmpty() + " pass is empty: " + password.isEmpty());
             return;
         }
-        GeneralDatabase.addUser(email, password);
+        DatabaseInterface.addUser(email, password);
         Log.d(TAG, "____________________Added to database?");
 
         goToSubjectOverview(view);

@@ -1,4 +1,4 @@
-package com.example.simplytask;
+package com.example.simplytask.Database;
 
 import android.util.Log;
 

@@ -5,85 +5,79 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-class UserDatabase implements OnCompleteListener {
+/**
+ * This Class is intended to handle all Database operations for the User Documents
+ */
+@SuppressWarnings("UnnecessaryReturnStatement")
+class UserDatabase extends GeneralDatabase{
 
+    /*Private Constants*/
     private static String TAG = UserDatabase.class.getCanonicalName();
 
-    private boolean isCallComplete = false;
-    private boolean result = false;
-    private Exception exception = null;
-
+    /**
+     * This is the main Constructor for the UserDatabase Class. It is used just
+     * to give the Super Class a relevant String to use as the Location for
+     * Logging
+     * */
     public UserDatabase(){
-
+        super(TAG);
     }
 
-    public String userID(String email){
+    /**
+     * This Method is a temp way of generating a userID. This will likely change
+     * later or it may be confirmed as permanent logic. Who knows.
+     * @param email  The email of the User we want to generate the ID of
+     * @return  The Users ID
+     */
+    public static String userID(String email){
         return email;
     }
 
-    public boolean addUser(final String email, String password) {
+    /**
+     * This Method is used to Add a new User to the Database. It will create a
+     * call for the User to be added. If this Class is already handling a Call,
+     * an Exception will be thrown.
+     *
+     * NOTE: Currently waitForCallToComplete() needs to be called in order for
+     *      this class to detect that a Call has completed. This is due to
+     *      issues getting the Call Back to work.
+     * @param email  The email of the User that's being added.
+     * @param password  The password of the User that's being added. //TODO pass this off to Google Auth
+     * @throws ConcurrentCallsException  Throws ConcurrentCallsException if a
+     *      new Call is requested to a Class that is already handling (and
+     *      waiting for) a Call to Complete.
+     */
+    public void addUser(final String email, String password) throws ConcurrentCallsException {
 
+        /*Assert that a new Call can be made, then set the Control Variables to
+        * reflect that a new Call is being made*/
+        this.startNewCall();
+
+        /*Creates a new 'Data Object' to Encapsulate the Data for the Database*/
         Map<String, Object> data = new HashMap<>();
-        final String userID = userID(email);
-
         data.put("Password", password);
         data.put("Email", email);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db
-                .collection("User")
+        /*Get the ID for the User being added*/
+        String userID = userID(email);
+
+        /*Make the Database Call*/
+        super.currentTask = super.db.collection("User")
                 .document(userID)
-                .set(data)
-//                .add(data)
-                .addOnSuccessListener(new OnSuccessListener() {
-                    @Override
-                    public void onSuccess(Object o) {
-                        Log.d(TAG, "onSuccess L");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "onFailure LL");
-                    }
-                })
-                .addOnCompleteListener(this);
-        while( ! this.isCallComplete){
-            Log.d(TAG, "wait: " + Calendar.getInstance().getTime());
-            try{
-                Thread.sleep(1000);
-            }
-            catch (InterruptedException e){
-                continue;
-            }
-        }
-        return this.result;
-    }
+                .set(data);
 
-    @Override
-    public void onComplete(@NonNull Task task) {
-        Log.d(TAG, "onComplete Start");
-        this.isCallComplete = true;
-        this.result = task.isSuccessful();
-        this.exception = task.getException();
+        return;
+
     }
 
 
-    public String getException(){
-        if(this.exception != null){
-            return this.exception.getMessage();
-        }
-        return "";
-    }
 
 }

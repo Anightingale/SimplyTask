@@ -11,25 +11,31 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".ManagerSubjectOverview"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:exported="false"/>
 
         <activity android:name=".ManagerSubjectView"
-            android:parentActivityName=".ManagerSubjectOverview"/>
+            android:parentActivityName=".ManagerSubjectOverview"
+            android:exported="false"/>
 
         <activity android:name=".ManagerClassOverview"
-            android:parentActivityName=".ManagerSubjectView"/>
+            android:parentActivityName=".ManagerSubjectView"
+            android:exported="false"/>
 
         <activity android:name=".SubjectOverview"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
 
         </activity>
 
         <activity android:name=".SubjectTasks"
-            android:parentActivityName=".SubjectOverview">
+            android:parentActivityName=".SubjectOverview"
+            android:exported="false">
 
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

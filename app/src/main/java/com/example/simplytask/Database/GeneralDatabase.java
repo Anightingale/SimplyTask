@@ -12,6 +12,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -19,40 +20,158 @@ import java.util.function.*;
 
 import static android.content.ContentValues.TAG;
 
-public class GeneralDatabase {
+/**
+ * This Class is intended to act as a base for all other Database Interacting Classes. It provides
+ * the Base Controls to make sure each Class only handles one Call at a time. This ensures that
+ * the Classes only store the results and information for the most recent Call and no 'wires get
+ * crossed'
+ */
+@SuppressWarnings({"UnnecessaryContinue", "UnnecessaryReturnStatement"})
+public class GeneralDatabase implements OnCompleteListener {
 
-    //TODO Figure out how this is actually meant to connect since I don't see where it uses google-services.json...
-    //TODO Refactor this into an Interface and have classes to handle the listener logic
+    /*Private Constant*/
+    //TODO once refactoring is done add final, remove static, and don't initialise
+    private static String TAG = GeneralDatabase.class.getCanonicalName();
 
-    public static FirebaseFirestore db= FirebaseFirestore.getInstance();
+    /*Protected Constant*/
+    //TODO after refactoring is done Remove Static, and make protected
+    public static final FirebaseFirestore db= FirebaseFirestore.getInstance();
+
+    /*Protected Variables*/
+    //isCallComplete vs isCallRunning is important for the waitForCallToComplete() method to avoid
+    //an infinite loop
+    protected boolean isCallComplete = false;
+    protected boolean isCallRunning = false;
+    protected boolean callSuccess = false;
+    protected Exception exception = null;
+    protected Task<?> currentTask = null;
+
+    /*Constructors*/
+
+    /**
+     * Main Constructor for this Class. Used to provide the TAG Value that should be used for
+     * logging
+     * @param TAG  The Value that should be used to record the Logs relative Location in the Logging
+     */
+    protected GeneralDatabase(String TAG){
+        this.TAG = "(Super)" + TAG;
+    }
+
+    /*Protected Methods*/
+
+    /**
+     * This Method initialises all the Control Variables to reflect that a new Call has been made
+     */
+    protected void startNewCall() throws ConcurrentCallsException {
+
+        /*If there is a Call currently running, throw an Exception*/
+        if(this.isCallRunning){
+            throw new ConcurrentCallsException("Can not start a new Call as there is already a " +
+                    "call running");
+        }
+
+        /*Set the Control Variables to reflect a new Call has started*/
+        this.isCallRunning = true;
+        this.isCallComplete = false;
+        this.callSuccess = false;
+        this.exception = null;
+
+    }
+
+    /**
+     * Currently this Method is used to set the Control Variables to reflect
+     * that the Database Call had succeeded. It will then also get and store the
+     * Success value and of the Call as well as the Exception it Generated (if
+     * it did generate one).
+     *
+     * This Method was intended to be used as a Callback to Database Calls. It
+     * was meant to detect when a Call to the database has completed. However it
+     * seems that there is an issue with this Callback triggering when we
+     * actively wait for it. (maybe try putting this in another class that then
+     * changes control variables here? May also have to do with non thread
+     * something variables?)
+     * @param task  The task representing the Call that was being made
+     */
+    @Override
+    public void onComplete(@NonNull Task task) {
+
+        Log.d(TAG, "++++onComplete Start");
+
+        /*Update all the control variables*/
+        this.isCallComplete = true;
+        this.isCallRunning =false;
+
+        /*Get the Success Status of the Call*/
+        this.callSuccess = task.isSuccessful();
+
+        /*Get the Exception the Call Generated (will be null if none were)*/
+        this.exception = task.getException();
+
+        return;
+
+    }
+
+    /**
+     * This Method is used to wait for a Call to complete. This will block the
+     * thread.
+     */
+    protected void waitForCallToComplete(){
+
+        /*Initialisation*/
+        int MAX_WAIT_STEP = 1000;
+        int waitStep = 1;
+
+        /*While there is a Call running that hasn't complete, wait in larger
+        * steps until it reaches one second, and then wait in one Second steps*/
+//        while( ! this.isCallComplete && this.isCallRunning){
+        while( ! this.currentTask.isComplete()){
+            Log.d(TAG, "waitForResult: " + Calendar.getInstance().getTime());
+            /*Wait for the current Step time*/
+            try{
+                //TODO Maybe make a better solution than be busy waiting
+                //noinspection BusyWait
+                Thread.sleep(waitStep);
+                /*Increase the Wait Step*/
+                waitStep = Math.min(waitStep*2, MAX_WAIT_STEP);
+            }
+            /*Catch the Sleep Wakeup*/
+            catch (InterruptedException e){
+                continue;
+            }
+        }
+
+        /*The Call has completed, so reflect so in the Variables*/
+        onComplete(this.currentTask);
+
+        return;
+
+    }
+
+    /*Getters*/
+
+    protected Exception getException() throws CallNotCompleteException {
+        if (this.isCallComplete) {
+            return this.exception;
+        }
+        throw new CallNotCompleteException("Can not get the Call Success as the Call has not " +
+                "completed yet");
+    }
+
+    protected boolean getCallSuccess() throws CallNotCompleteException {
+        if(this.isCallComplete) {
+            return this.callSuccess;
+        }
+        throw new CallNotCompleteException("Can not get the Call Success as the Call has not " +
+                "completed yet");
+    }
+
+
+
+    /*//TODO Refactor these Methods into other classes*/
+
 
     public static String userID(String email){
         return email;
-    }
-
-    public static void addUser(final String email, String password) {
-
-        Map<String, Object> data = new HashMap<>();
-        final String userID = userID(email);
-
-        data.put("Password", password);
-        data.put("Email", email);
-
-        db.collection("User").document(userID).set(data)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "User added with ID: " + userID);
-                        addWorker(userID);
-                        addManager(userID);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding User", e);
-                    }
-                });
     }
 
     public static String workerID(String userID){
